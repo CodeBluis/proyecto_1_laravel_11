@@ -1,27 +1,27 @@
 @extends('dashboard.master')
 
 @section('content')
-    <a href="{{ route('post.create') }}"target="blank">Create</a>
+    <a class="btn btn-primary my-3" href="{{ route('post.create') }}" target="blank">Create</a>
 
-    <table>
+    <table class="table">
 
         <thead>
             <tr>
-                <td>
+                <th>
                     Id
-                </td>
-                <td>
+                </th>
+                <th>
                     Title
-                </td>
-                <td>
+                </th>
+                <th>
                     Posted
-                </td>
-                <td>
+                </th>
+                <th>
                     Category
-                </td>
-                <td>
+                </th>
+                <th>
                     Option
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -40,18 +40,18 @@
                         {{ $p->category->title }}
                     </td>
                     <td>
-                        <a href="{{ route('post.show', $p) }}">Show</a>
-                        <a href="{{ route('post.edit', $p) }}">Edit</a>
+                        <a class="btn btn-success mt-2" href="{{ route('post.show', $p) }}">Show</a>
+                        <a class="btn btn-success mt-2" href="{{ route('post.edit', $p) }}">Edit</a>
                         <form action="{{ route('post.destroy', $p) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button type="submit">Delete</button>
+                            <button class="btn btn-danger mt-2" type="submit">Delete</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
+    <div class="mt-2"></div>
     {{ $posts->links() }}
 @endsection
