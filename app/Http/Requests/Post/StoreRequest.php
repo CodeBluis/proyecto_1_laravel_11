@@ -22,7 +22,6 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
             'title' => 'required|min:5|max:500',
             'slug' => 'required|min:3|max:500|unique:posts',
             'content' => 'required|min:7',

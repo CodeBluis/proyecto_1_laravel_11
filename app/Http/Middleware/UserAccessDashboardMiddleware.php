@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserAccessDashboardMiddleware
 {
-
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->isAdmin()) {
+        if(auth()->user()->isAdmin()){
             return $next($request);
         }
+        
         return redirect('/');
     }
 }
